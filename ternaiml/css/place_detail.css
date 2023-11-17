@@ -1,0 +1,172 @@
+* {
+    padding: 0px;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.top {
+    background-color: #caeaff;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main {
+    padding: 20px;
+}
+
+.region-detail {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2,
+h3 {
+    color: #333;
+}
+
+p {
+    color: #555;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* 底部样式 */
+footer {
+    margin-top: 15px;
+    background-color: #212121;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* 鼠标悬停效果 */
+footer:hover {
+    background-color: #ff4081;
+}
+
+/* 文本链接样式 */
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* 链接悬停效果 */
+footer a:hover {
+    color: #ff4081;
+}
+
+
+
+/*评论区的css样式*/
+
+/* Styling for the Comments Section */
+/* Styling for the Comments Section */
+/* .comments {
+    width: 85%;
+    margin-top: 20px;
+}
+
+.comments h3 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.comments ul {
+    list-style: none;
+    padding: 0;
+}
+
+.comments li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+}
+
+.comments p {
+    margin: 0;
+}
+
+form {
+    width: 85%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.submit-button:hover {
+    background-color: #45a049;
+}
+
+
+.delete-button {
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff0000;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+.delete-button:hover{
+    background-color: #58ff4f;
+} */

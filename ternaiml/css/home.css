@@ -1,0 +1,29 @@
+* {
+    padding: 0px;
+    margin: 0 auto;
+}
+
+.container {
+    width: 85%;
+    height: 600px;
+    background-color: antiquewhite;
+}
+
+.top {
+    width: 86%;
+    height: 60px;
+    padding-left: 20px;
+    line-height: 60px;
+    border-bottom: 1px solid black;
+    background-color: rgba(210, 210, 212, 0.1);
+
+}
+
+.top img {
+    width: 25px;
+    height: 25px;
+}
+
+.top h2 {
+    display: inline-block;
+}

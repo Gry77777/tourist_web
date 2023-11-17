@@ -1,0 +1,105 @@
+/* user_manager.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50; /* 更深的绿色背景 */
+    color: white; /* 白色文本 */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #333; /* 更深的灰色背景 */
+    color: white;
+}
+
+/* 交替行颜色 */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* 更浅的灰色背景 */
+}
+
+tr:hover {
+    background-color: #e0e0e0; /* 更浅的灰色背景 */
+}
+
+/* 重置和删除按钮样式 */
+button {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+.reset-buttons,
+.delete-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.reset-buttons button,
+.delete-buttons button {
+    margin-bottom: 5px;
+    padding: 1px 3px;
+    /* Adjust padding for button size */
+    background-color: red;
+    /* Set background color to red */
+    color: white;
+    /* Set text color to white */
+    border: none;
+    /* Remove border */
+    cursor: pointer;
+}
+.reset-confirm-btn,
+.reset-cancel-btn{
+    width: 77px;
+}
+.delete-confirm-btn,
+.delete-cancel-btn{
+    width: 77px;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    color: #4CAF50;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}

@@ -1,0 +1,250 @@
+* {
+    padding: 0px;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.top {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(63, 63, 62);
+    line-height: 50px;
+    position: relative;
+}
+
+.top .left {
+    color: rgb(147, 147, 147);
+    position: absolute;
+    left: 20px;
+    font-style: italic;
+
+}
+
+#userSection {
+    color: rgb(158, 156, 156);
+    position: absolute;
+    right: 25px;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+}
+
+#userSection img {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#userSection a {
+    display: inline-block;
+    color: rgb(140, 137, 137);
+    text-decoration: none;
+}
+
+#userSection a:hover {
+    color: aqua;
+}
+
+#userSection form {
+    display: inline;
+    /* 保持表单在一行 */
+    margin-left: 10px;
+    /* 调整表单与链接之间的间距 */
+}
+
+#userSection input[type="submit"] {
+    background-color: #dc3545;
+    /* 设置按钮背景颜色 */
+    color: #fff;
+    /* 设置按钮文字颜色 */
+    border: none;
+    /* 移除边框 */
+    padding: 5px 10px;
+    /* 调整按钮内边距 */
+    cursor: pointer;
+    /* 设置鼠标指针样式 */
+}
+
+#userSection input[type="submit"]:hover {
+    background-color: #c82333;
+    /* 设置鼠标悬停时的背景颜色 */
+}
+
+
+.top_name {
+    background-color: #caeaff;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main {
+    padding: 20px;
+}
+
+.region-detail {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* h2,
+h3 {
+    color: #333;
+}
+
+p {
+    color: #555;
+} */
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* 底部样式 */
+footer {
+    margin-top: 15px;
+    background-color: #212121;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* 鼠标悬停效果 */
+footer:hover {
+    background-color: #ff4081;
+}
+
+/* 文本链接样式 */
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* 链接悬停效果 */
+footer a:hover {
+    color: #ff4081;
+}
+
+
+.comment {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    transition: box-shadow 0.3s;
+}
+
+.comment:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment p {
+    margin: 0;
+}
+
+.username {
+    color: #3498db;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.timestamp {
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.comment-text {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.delete-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #e60000;
+}
+
+#commentForm {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#comment_text {
+    width: 80%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.submit-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+.warn {
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    background-color: #f8d7da;
+    /* 红色背景，可以根据需求调整颜色 */
+    border: 1px solid #f5c6cb;
+    /* 边框颜色，可以根据需求调整颜色 */
+    border-radius: 5px;
+    /* 圆角边框 */
+    color: #721c24;
+    /* 字体颜色，可以根据需求调整颜色 */
+}

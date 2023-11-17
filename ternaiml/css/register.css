@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/bg.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.container h2 {
+    margin-bottom: 20px;
+}
+
+.container input[type="text"],
+.container input[type="password"],
+.container input[type="file"],
+.container input[type="radio"] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.container input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+.register-link {
+    font-size: 14px;
+    text-decoration: none;
+    color: #ff5656;
+
+}
+
+.register-link:hover {
+    color: rgb(141, 150, 255);
+}
+
+#preview {
+    max-width: 200px;
+    margin: 0 auto;
+    border-radius: 45%
+}
+
+.cancel-btn {
+    background-color: rgb(206, 206, 206);
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #cc0000;
+}
+
+/* 性别按钮 */
+/* 清除默认的单选按钮样式 */
+input[type="radio"] {
+    display: none;
+}
+
+/* 自定义单选按钮样式 */
+input[type="radio"]+label {
+    position: relative;
+    padding-left: 25px;
+    /* 为了留出空间给自定义的圆形按钮 */
+    cursor: pointer;
+}
+
+/* 创建自定义的圆形按钮 */
+input[type="radio"]+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    /* 调整垂直居中 */
+    width: 16px;
+    /* 圆形按钮的直径 */
+    height: 16px;
+    /* 圆形按钮的直径 */
+    border: 1px solid #000;
+    /* 圆形按钮的边框样式 */
+    border-radius: 50%;
+    /* 使按钮呈圆形 */
+    transition: all 0.3s ease;
+    /* 添加过渡效果 */
+}
+
+/* 单选按钮选中时的样式 */
+input[type="radio"]:checked+label:before {
+    background-color: #ff7777;
+    /* 设置选中时的背景颜色 */
+}
+
+/* 按钮样式 */
+button[name="submit"] {
+    margin-top: 10px;
+    padding: 10px 20px;
+    /* 按钮内边距 */
+    font-size: 16px;
+    /* 字体大小 */
+    background-color: #4CAF50;
+    /* 背景颜色 */
+    color: white;
+    /* 文字颜色 */
+    border: none;
+    /* 去掉边框 */
+    border-radius: 5px;
+    /* 圆角边框 */
+    cursor: pointer;
+    /* 鼠标悬停样式 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* 添加阴影效果 */
+}
+
+button[name="submit"]:hover {
+    background-color: #45a049;
+    /* 鼠标悬停时的背景颜色 */
+}
