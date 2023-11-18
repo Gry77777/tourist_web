@@ -1,0 +1,113 @@
+/* goods_detail.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.product-images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-container {
+    padding-top: 10px;
+    flex: 0 0 30%; /* Adjust the width as needed */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease-in-out; /* Add animation */
+}
+
+.description,
+.related-products,
+.product-specs,
+.shipping-info,
+.special-offers {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.additional-info {
+    margin-top: 15px;
+}
+
+.related-product {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+}
+
+.product-specs ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.product-specs li {
+    margin-bottom: 5px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.social-media a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Add animations as needed */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply animations to elements */
+.product-images img,
+.description,
+.related-products,
+.product-specs,
+.shipping-info,
+.special-offers,
+footer {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Add responsive design */
+@media screen and (max-width: 600px) {
+
+    .related-products,
+    .product-specs,
+    .shipping-info,
+    .special-offers {
+        margin: 10px;
+    }
+}

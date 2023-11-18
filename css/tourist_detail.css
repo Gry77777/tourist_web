@@ -1,0 +1,322 @@
+/* * {
+    padding: 0px;
+    margin: 0 auto;
+} */
+
+.top {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(63, 63, 62);
+    line-height: 50px;
+    position: relative;
+}
+
+.top .left {
+    color: rgb(147, 147, 147);
+    position: absolute;
+    left: 20px;
+    font-style: italic;
+
+}
+
+#userSection {
+    color: rgb(158, 156, 156);
+    position: absolute;
+    right: 25px;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+}
+
+#userSection img {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#userSection a {
+    display: inline-block;
+    color: rgb(140, 137, 137);
+    text-decoration: none;
+}
+
+#userSection a:hover {
+    color: aqua;
+}
+
+#userSection form {
+    display: inline;
+    /* 保持表单在一行 */
+    margin-left: 10px;
+    /* 调整表单与链接之间的间距 */
+}
+
+#userSection input[type="submit"] {
+    background-color: #dc3545;
+    /* 设置按钮背景颜色 */
+    color: #fff;
+    /* 设置按钮文字颜色 */
+    border: none;
+    /* 移除边框 */
+    padding: 5px 10px;
+    /* 调整按钮内边距 */
+    cursor: pointer;
+    /* 设置鼠标指针样式 */
+}
+
+#userSection input[type="submit"]:hover {
+    background-color: #c82333;
+    /* 设置鼠标悬停时的背景颜色 */
+}
+
+.container {
+    width: 86%;
+    margin: auto;
+}
+
+.main {
+    width: 89%;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #fff;
+    /* 白色背景 */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+h1 {
+    font-size: 36px;
+    /* 调整字体大小 */
+    text-align: left;
+    margin-bottom: 30px;
+    color: #000;
+    /* 黑色标题 */
+    font-weight: bold;
+    /* 加粗字体 */
+    font-family: 'Arial', sans-serif;
+    /* 指定字体 */
+    text-transform: uppercase;
+    /* 将文本转换为大写 */
+    font-style: italic;
+    /* 斜体 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* 阴影效果 */
+}
+
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    width: 30%;
+    /* 调整图片宽度，可以根据需要调整 */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+p.intro {
+    font-style: italic;
+    font-size: 18px;
+    color: #555;
+}
+
+
+p.contact {
+    font-size: 1em;
+    color: #4CAF50;
+    margin-bottom: 10px;
+    animation: slideInRight 1s ease-out;
+}
+
+p.contact span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Opening Hours */
+p.opening-hours {
+    width: 50%;
+    text-align: left;
+    font-size: 1em;
+    color: #2196F3;
+    margin-bottom: 10px;
+    animation: fadeInUp 1s ease-out;
+}
+
+p.opening-hours span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Ticket */
+p.ticket {
+    width: 50%;
+    font-size: 1em;
+    color: #FFC107;
+    margin-bottom: 10px;
+    animation: slideInRight 1s ease-out;
+    text-align: left;
+    /* This will align the content to the left */
+}
+
+
+p.ticket span {
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    /* This will align the content to the left */
+}
+
+/* Transportation */
+p.transportation {
+    width: 50%;
+    text-align: left;
+    font-size: 1em;
+    color: #E91E63;
+    margin-bottom: 10px;
+    animation: fadeInUp 1s ease-out;
+}
+
+p.transportation span {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Animation Effects */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#comments-container {
+    margin-top: 20px;
+    /* 保留顶部边距 */
+    margin-left: auto;
+    /* 设置左侧边距为 auto */
+    margin-right: auto;
+    /* 设置右侧边距为 auto */
+    width: 85%;
+}
+
+.comment {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* 添加阴影效果 */
+}
+
+.comment p {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.comment-time {
+    font-size: smaller;
+    color: #888;
+    /* 时间文字变淡 */
+}
+
+.delete-comment {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    /* 添加按钮阴影效果 */
+}
+
+#comment-form {
+    margin-top: 20px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* 让按钮居中 */
+}
+
+#comment-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    /* 让 textarea 的宽度包括 padding 和 border */
+    margin-bottom: 10px;
+}
+
+#comment-form button {
+    background-color: #4CAF50;
+    /* 绿色背景 */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    /* 圆角 */
+}
+
+.login-prompt {
+    font-size: 16px;
+    color: #FF0000;
+    /* 红色文本 */
+    font-style: italic;
+    /* 斜体 */
+    margin-top: 10px;
+    /* 上边距 */
+}
+
+
+/* 页脚 */
+footer {
+    height: 50px;
+    background-color: #333;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+footer:hover {
+    background-color: #ff9393;
+    /* 鼠标悬停时背景颜色变化 */
+}

@@ -1,0 +1,81 @@
+* {
+    padding: 0px;
+    margin: 0 auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* 设置最小高度为视口高度，确保内容能够撑开 */
+}
+
+.top {
+    width: 86%;
+    height: 60px;
+    padding-left: 20px;
+    line-height: 60px;
+    border-bottom: 1px solid black;
+    background-color: rgba(210, 210, 212, 0.1);
+
+}
+
+.top img {
+    width: 20px;
+    height: 20px;
+}
+
+.top h2 {
+    display: inline-block;
+}
+
+.main {
+    width: 85%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.form-group label {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
