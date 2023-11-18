@@ -1,0 +1,172 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+/* h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+} */
+h2 {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    /* 更深的绿色背景 */
+    color: white;
+    /* 白色文本 */
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #555;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+button.edit-btn {
+    background-color: #27ae60;
+    /* 修改按钮颜色 */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button.edit-btn:hover {
+    background-color: #218c56;
+}
+
+button.delete-btn {
+    background-color: #e74c3c;
+    /* 删除按钮颜色 */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+#pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#prevPage,
+#nextPage {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#prevPage:hover,
+#nextPage:hover {
+    background-color: #2980b9;
+}
+
+#currentPage,
+#totalPages {
+    font-weight: bold;
+    margin: 0 10px;
+    color: #555;
+}
+
+/*拟态框样式*/
+/* Modal container */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    /* 调整宽度为60% */
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: -10px;
+    cursor: pointer;
+    /* 调整关闭按钮的垂直位置 */
+}
+
+.close:hover {
+    color: red;
+}
+
+/* Submit button */
+#edit-form input[type="submit"] {
+    margin-top: 10px;
+    /* 调整提交按钮的上边距 */
+    padding: 10px;
+    /* 添加内边距 */
+    background-color: #4CAF50;
+    /* 绿色背景 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#edit-form input[type="submit"]:hover {
+    background-color: #45a049;
+    /* 鼠标悬停时的背景颜色 */
+}
+
+#addTouristBtn {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    padding: 10px;
+    background-color: #78aeff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}

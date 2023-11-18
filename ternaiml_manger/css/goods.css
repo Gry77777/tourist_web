@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    /* 更深的绿色背景 */
+    color: white;
+    /* 白色文本 */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.modify-btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    font-size: 12px;
+    background-color: #4CAF50;
+    /* Green for Modify */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modify-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    font-size: 12px;
+    background-color: #ff3333;
+    /* Red for Delete */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    margin: 0 5px;
+    font-size: 14px;
+    text-decoration: none;
+    background-color: #f2f2f2;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination .active {
+    background-color: #008CBA;
+    color: white;
+}

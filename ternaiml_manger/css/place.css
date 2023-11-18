@@ -1,0 +1,71 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* ... 省略前面的样式代码 ... */
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    /* 更深的绿色背景 */
+    color: white;
+    /* 白色文本 */
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+button.edit-btn,
+button.delete-btn,
+button.save-btn,
+button.confirm-delete-btn {
+    padding: 8px 12px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+button.edit-btn,
+button.save-btn {
+    background-color: #008CBA;
+    color: #fff;
+}
+
+button.delete-btn,
+button.confirm-delete-btn {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+button.edit-btn:hover,
+button.save-btn:hover,
+button.delete-btn:hover,
+button.confirm-delete-btn:hover {
+    background-color: #00517c;
+}
+
+/* ... 省略后面的样式代码 ... */
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+}
