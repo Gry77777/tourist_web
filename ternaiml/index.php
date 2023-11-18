@@ -84,7 +84,7 @@ if (!isset($_SESSION['username'])) {
                     <img src="image/navigate.png" alt="Tourists Icon"> <!-- 请替换 "tourists-icon.png" 为实际的图片文件名 -->
                     金华景区
                 </li>
-                <li>
+                <li data-url="goods.php">
                     <img src="image/shopping.png" alt="Special Icon"> <!-- 请替换 "special-icon.png" 为实际的图片文件名 -->
                     特产商品
                 </li>
@@ -116,6 +116,13 @@ if (!isset($_SESSION['username'])) {
 </body>
 
 
+<script>
+    $(document).ready(function() {
+        $('#myIframe').on('load', function() {
+            var iframeHeight = $(this).contents().find('body').height();
+            $('#myIframe').height(iframeHeight + 50);
+        });
+    });
 </script>
 
 </html>

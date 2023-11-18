@@ -1,15 +1,18 @@
-table {
-    border-collapse: collapse;
-    width: 100%;
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
 }
 
-/* ... 省略前面的样式代码 ... */
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
 
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
 }
 
 h2 {
@@ -20,6 +23,13 @@ h2 {
     /* 更深的绿色背景 */
     color: white;
     /* 白色文本 */
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
 }
 
 th {
@@ -63,9 +73,4 @@ button.confirm-delete-btn:hover {
     background-color: #00517c;
 }
 
-/* ... 省略后面的样式代码 ... */
-
-img {
-    max-width: 100px;
-    max-height: 100px;
-}
+/* Add any other styles as needed */

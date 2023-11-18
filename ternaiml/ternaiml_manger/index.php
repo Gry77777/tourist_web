@@ -39,21 +39,50 @@ if (isset($_SESSION['admin_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>后台管理系统</title>
+    <title>金华旅游网站后台管理系统</title>
     <link rel="stylesheet" href="./css/index.css">
 </head>
+<script src="./js/jquery3.6.3.js"></script>
+<script>
+    $(document).ready(function() {
+        var iframe = document.getElementById('contentFrame');
+        // 监听 iframe 内容的变化并重新设置高度
+        iframe.onload = function() {
+            var extraHeight = 70; // 额外的高度
+            iframe.style.height = (iframe.contentWindow.document.body.scrollHeight + extraHeight) + 'px';
+        };
+    });
+</script>
 
 <body>
     <div class="container">
         <div class="sidebar">
-            <span>旅游网站后台管理系统</span>
+            <span style="font-size: 16px;"><em>金华旅游网站后台管理系统</em></span>
             <ul>
+                <li data-url="home.php">首页管理</li>
                 <li data-url="user_manger.php">用户信息管理</li>
-                <li data-url="Users.php">Users</li>
-                <li data-url="place.php">各地区管理</li>
-                <li data-url="Settings.php">Settings</li>
+                <li class="has-submenu">
+                    金华地区管理
+                    <ul>
+                        <li data-url="place.php">地区预览图</li>
+                        <li data-url="place_detail.php">地区详情</li>
+                    </ul>
+                </li>
+                <li class="has-submenu">景点信息
+                    <ul>
+                        <li data-url="tourist_place.php">景点预览图</li>
+                        <li data-url="tourist_detail.php">景点详情</li>
+                    </ul>
+                </li>
+                <li class="has-submenu">商品信息
+                    <ul>
+                        <li data-url="goods.php">商品预览图</li>
+                        <li data-url="goods_detail.php">商品详情</li>
+                    </ul>
+                </li>
             </ul>
         </div>
+
         <div class="content">
             <div class="header">
                 <div class="user-info">
@@ -64,22 +93,30 @@ if (isset($_SESSION['admin_id'])) {
                 </form>
             </div>
             <div class="main-content" id="mainContent">
-                <iframe id="contentFrame" src="user_manger.php" frameborder="0" height="900px" ></iframe>
+                <iframe id="contentFrame" src="user_manger.php" frameborder="0"></iframe>
             </div>
         </div>
 
     </div>
-
-    <script src="./js/jquery3.6.3.js"></script>
     <script>
         $(document).ready(function() {
-            // 添加到列表项的点击事件
-            $('.sidebar ul li').click(function() {
-                // 获取data-url属性的值
+            // 导航功能
+            $('.sidebar ul li[data-url]').click(function(e) {
+                e.stopPropagation(); // 阻止事件传播到带有子菜单的父级 li
                 var url = $(this).data('url');
-                // 更新iframe的src属性
                 $('#contentFrame').attr('src', url);
             });
+
+            $('.sidebar ul li.has-submenu').click(function(e) {
+                e.stopPropagation();
+                var submenu = $(this).children('ul');
+                if (submenu.length) {
+                    submenu.toggleClass('show');
+                    $(this).toggleClass('collapsed');
+                }
+            });
+            // 默认隐藏所有二级菜单
+            $('.sidebar ul ul').removeClass('show');
         });
     </script>
 </body>

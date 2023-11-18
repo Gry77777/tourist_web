@@ -6,7 +6,7 @@
 .container {
     width: 85%;
     height: 600px;
-    background-color: antiquewhite;
+    background-color: rgb(255, 255, 255);
 }
 
 .top {
@@ -26,4 +26,92 @@
 
 .top h2 {
     display: inline-block;
+}
+
+.main {
+    width: 85%;
+    margin: 0 auto;
+    /* 居中显示 */
+}
+
+.item {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.left {
+    flex: 0 0 30%;
+    padding-right: 20px;
+}
+
+.left img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* 添加圆角 */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* 添加阴影 */
+}
+
+.right {
+    padding-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+h3,
+p {
+    margin-bottom: 10px;
+    /* 调整标题和段落之间的间距 */
+}
+
+a {
+    color: inherit;
+    /* 继承父元素的颜色 */
+    text-decoration: none;
+    /* 去除下划线 */
+}
+
+.list {
+    margin-bottom: 20px;
+    /* 调整每个列表项之间的间距 */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* 在悬停时添加阴影和缩放效果 */
+}
+
+.list:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/*
+按钮样式
+*/
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.pagination a:hover {
+    background-color: #f0f0f0;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: #fff;
 }

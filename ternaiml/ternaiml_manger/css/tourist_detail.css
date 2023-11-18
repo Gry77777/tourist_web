@@ -1,0 +1,102 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+/* h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+} */
+h2 {
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    /* 更深的绿色背景 */
+    color: white;
+    /* 白色文本 */
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #555;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+button.edit-btn {
+    background-color: #27ae60;
+    /* 修改按钮颜色 */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button.edit-btn:hover {
+    background-color: #218c56;
+}
+
+button.delete-btn {
+    background-color: #e74c3c;
+    /* 删除按钮颜色 */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+#pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#prevPage,
+#nextPage {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#prevPage:hover,
+#nextPage:hover {
+    background-color: #2980b9;
+}
+
+#currentPage,
+#totalPages {
+    font-weight: bold;
+    margin: 0 10px;
+    color: #555;
+}

@@ -65,24 +65,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>管理员注册</h2>
         <form id="registerForm" method="post" action="">
             <div class="form-group">
-                <label for="username">Username:</label>
+                <label for="username">用户名:</label>
                 <input type="text" id="username" name="username" required>
                 <div class="error-message" id="usernameError"></div>
             </div>
             <div class="form-group">
-                <label for="password">Password:</label>
+                <label for="password">密码:</label>
                 <input type="password" id="password" name="password" required>
                 <div class="error-message" id="passwordError"></div>
             </div>
             <div class="form-group">
-                <label for="confirm_password">Confirm Password:</label>
+                <label for="confirm_password">确认密码:</label>
                 <input type="password" id="confirm_password" name="confirm_password" required>
             </div>
             <div class="form-group">
-                <button type="submit">Register</button>
+                <button type="submit">注册</button>
             </div>
         </form>
-        <p>Already have an account? <a href="login.php">Login here</a>.</p>
+        <p>已有账号? <a href="login.php">点击返回登录</a>.</p>
     </div>
 
     <script>

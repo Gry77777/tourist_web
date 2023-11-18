@@ -1,0 +1,124 @@
+* {
+    padding: 0px;
+    margin: 0 auto;
+}
+
+.container {
+    width: 90%;
+    background-color: #ffffff;
+    /* 使用小 li 悬停时的背景颜色 */
+}
+
+
+.top {
+    width: 90%;
+    height: 60px;
+    padding-left: 20px;
+    line-height: 60px;
+    border-bottom: 1px solid black;
+    background-color: rgba(210, 210, 212, 0.1);
+
+}
+
+.top img {
+    width: 25px;
+    height: 25px;
+}
+
+.top h2 {
+    display: inline-block;
+    color: #3a98f5;
+    /* 设置字体颜色 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    /* 添加阴影效果 */
+    font-family: 'Arial', sans-serif;
+    /* 设置字体样式 */
+    /* 可以添加其他样式，根据需要调整 */
+}
+
+.main {
+    width: 90%;
+}
+
+.product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product {
+    width: calc(33% - 20px);
+    /* 设置每行三个商品，减去间距 */
+    background-color: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-info {
+    text-align: center;
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: #008CBA;
+}
+
+.description {
+    color: #777;
+}
+
+
+
+/*按钮样式*/
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    margin: 0 5px;
+    font-size: 14px;
+    text-decoration: none;
+    background-color: #f2f2f2;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination .active {
+    background-color: #008CBA;
+    color: white;
+}
