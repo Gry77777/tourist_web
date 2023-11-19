@@ -52,7 +52,7 @@ if ($result->num_rows > 0) {
             <div class="related-product">
                 <h3><?= $row['related_product1_name'] ?></h3>
                 <p><?= $row['related_product1_description'] ?></p>
-                <img src="<?= $row['related_product1_image'] ?>" alt="<?= $row['related_product1_name'] ?>">
+                <img src="<?= $row['related_product1_image'] ?>" alt="<?= $row['related_product1_name'] ?>" style="width:300px;height:300px">
             </div>
             <div class="related-product">
                 <h3><?= $row['related_product2_name'] ?></h3>

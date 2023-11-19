@@ -1,12 +1,14 @@
 <?php
 // 在需要验证用户登录状态的页面顶部，先启用Session
 session_start();
+session_set_cookie_params(0, '/', 'localhost', false, true);
 // 检查用户是否已登录，如果未登录则重定向到登录页面
 if (!isset($_SESSION['username'])) {
     $loggedIn = false;
 } else {
     $loggedIn = true;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +46,11 @@ if (!isset($_SESSION['username'])) {
                     <?php
                     if ($loggedIn) {
                         echo '<a href="profile.php">' . $_SESSION['username'] . '</a>';
-                        echo '<img src="' . $_SESSION['img'] . '" alt="User Image" style="width: 25px; height: 25px; border-radius: 15px;">';
+                        if (isset($_SESSION['img'])) {
+                            echo '<img src="' . $_SESSION['img'] . '" alt="User Image" style="width: 25px; height: 25px; border-radius: 15px;">';
+                        } else {
+                            // 处理$_SESSION['img']未定义的情况
+                        }
                         echo '<form action="logout.php" method="post" style="display: inline;">
                     <input type="submit" value="退出登录">
                     </form>';
@@ -58,12 +64,12 @@ if (!isset($_SESSION['username'])) {
         <!-- 大图片的显示 -->
         <div class="banner">
             <p>
-                金华旅游足迹网
+                金华旅游信息网站
             </p>
-            <div class="search">
+            <!-- <div class="search">
                 <input type="text" id="searchInput" placeholder="输入搜索内容">
                 <button id="searchButton">点击搜索</button>
-            </div>
+            </div> -->
             <span>
                 服务热线:<em><a href="" style="display: inline-block;">400-1234-5678</a>
                 </em>
@@ -86,7 +92,7 @@ if (!isset($_SESSION['username'])) {
                 </li>
                 <li data-url="goods.php">
                     <img src="image/shopping.png" alt="Special Icon"> <!-- 请替换 "special-icon.png" 为实际的图片文件名 -->
-                    特产商品
+                    特产商品介绍
                 </li>
                 <li data-url="personal.php">
                     <img src="image/user_big.png" alt="Personal Icon"> <!-- 请替换 "personal-icon.png" 为实际的图片文件名 -->

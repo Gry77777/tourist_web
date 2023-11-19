@@ -51,7 +51,7 @@ $conn->close();
 
 <body>
     <div class="container">
-        <h2>欢迎注册古古旅游官网</h2>
+        <h2>欢迎注册金华旅游网</h2>
         <form method="post" action="register.php" enctype="multipart/form-data" onsubmit="return validateForm()">
             <div class="input-group">
                 <label for="username">用户名:</label>

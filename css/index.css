@@ -102,6 +102,8 @@
 }
 
 .banner span {
+    margin: 0;
+    width: 150px;
     font-size: 16px;
 }
 

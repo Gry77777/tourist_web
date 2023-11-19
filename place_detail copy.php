@@ -96,7 +96,7 @@ if ($result->num_rows > 0) {
                     </form>';
                 } else {
                     echo '<a href="login.php?redirect=' . urlencode($_SERVER['REQUEST_URI']) . '">登录</a>';
-                    echo "Encoded URI: " . $_SERVER['REQUEST_URI'];
+                    // echo "Encoded URI: " . $_SERVER['REQUEST_URI'];
 
                     echo '/<a href="register.php">注册</a>';
                 }

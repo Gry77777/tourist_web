@@ -48,6 +48,8 @@ $(document).ready(function () {
 // });
 
 $(document).ready(function () {
+  // Define your base height value
+  var baseHeight = 100; // You can change this value as needed
   function adjustIframeHeight() {
     var iframe = $("#myIframe");
     if (iframe.length) {
@@ -56,7 +58,8 @@ $(document).ready(function () {
         var totalHeight =
           bodyHeight +
           parseInt(iframe.css("paddingTop")) +
-          parseInt(iframe.css("paddingBottom"));
+          parseInt(iframe.css("paddingBottom")) +
+          baseHeight; // Add the base height here
         iframe.css("height", totalHeight + "px");
       } catch (e) {
         console.error("Error adjusting iframe height:", e);
@@ -64,10 +67,12 @@ $(document).ready(function () {
     }
   }
 
+
+  // Attach the adjustIframeHeight function to the resize and load events
   $(window).on("resize", adjustIframeHeight);
   $("#myIframe").on("load", adjustIframeHeight);
 
-  // 在页面加载时和 iframe 内容变化时调整 iframe 高度
+  // Adjust iframe height on page load
   $(window).on("load", function () {
     adjustIframeHeight();
   });

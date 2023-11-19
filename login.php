@@ -1,6 +1,7 @@
 <?php
 require "config.php";
 session_start();
+session_set_cookie_params(0, '/', 'localhost', false, true);
 ini_set('session.gc_maxlifetime', 300);
 
 // 保存登录前的页面 URL

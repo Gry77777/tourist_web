@@ -109,7 +109,6 @@
     <script>
         $(document).ready(function() {
             var initialMessage = "欢迎使用金华旅游足迹网聊天机器人！您可以询问关于预订、景点信息、交通方式等问题，我会尽力提供帮助。";
-
             // Display initial message
             var initialBotMessage = $("<div>").addClass("message bot-message").text(initialMessage);
             $("#chatBody").append(initialBotMessage);
@@ -117,17 +116,14 @@
             function sendMessage() {
                 var userInput = $("#userInput").val();
                 var chatBody = $("#chatBody");
-
                 if (userInput.trim() !== "") {
                     // 用户消息
                     var userMessage = $("<div>").addClass("message user-message").text(userInput);
                     chatBody.append(userMessage);
-
                     // 根据关键词匹配选择机器人的回复
                     var botReply = getBotReply(userInput);
                     var botMessage = $("<div>").addClass("message bot-message").text(botReply);
                     chatBody.append(botMessage);
-
                     // 滚动到底部显示最新消息
                     chatBody.scrollTop(chatBody[0].scrollHeight);
                 }

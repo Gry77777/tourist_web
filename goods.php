@@ -56,7 +56,7 @@ $conn->close();
                     // 如果有图片字段，你也可以在这里输出图片
                     if (!empty($row['image'])) {
                         // 使用相对路径显示图片
-                        echo '<img src="../' . $row['image'] . '" alt="goods Image">';
+                        echo '<img src="../' . $row['image'] . '" alt="goods Image" style="display: block; margin: 0 auto; text-align: center;">';
                     }
                     echo '</div>';
                     echo '<div class="product-info">';
