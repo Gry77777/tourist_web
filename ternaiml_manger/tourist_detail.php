@@ -44,6 +44,7 @@ $conn->close();
     <h2>景点详情管理</h2>
     <table border="1" id="yourTable">
         <tr>
+            <th>id</th>
             <th>Title</th>
             <th>Image 1</th>
             <th>Image 2</th>
@@ -57,6 +58,7 @@ $conn->close();
         </tr>
         <?php foreach ($touristsData as $data) : ?>
             <tr>
+                <td><?= $data['tourist_id'] ?></td>
                 <td><?= $data['title'] ?></td>
                 <td><img src="../<?= $data['image1'] ?>" alt=""></td>
                 <td><img src="../<?= $data['image2'] ?>" alt=""></td>

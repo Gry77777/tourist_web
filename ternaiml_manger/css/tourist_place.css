@@ -117,6 +117,7 @@ button.delete-btn:hover {
 
 /* Modal content */
 .modal-content {
+    padding-top: 20vh;
     background-color: #fefefe;
     margin: 10% auto;
     padding: 20px;

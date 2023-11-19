@@ -18,23 +18,32 @@ require "config.php";
 //     $conn->query($deleteQuery);
 // }
 
+$searchUsername = isset($_GET['searchUsername']) ? '%' . $_GET['searchUsername'] . '%' : '';
+$searchGender = isset($_GET['searchGender']) ? $_GET['searchGender'] : '';
+
+// 构建查询条件
+$searchCondition = "";
+if (!empty($searchUsername)) {
+    $searchCondition .= " AND username LIKE '$searchUsername'";
+}
+if (!empty($searchGender)) {
+    $searchCondition .= " AND sex = '$searchGender'";
+}
+
 // 分页
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $recordsPerPage = 10;
 $offset = ($page - 1) * $recordsPerPage;
 
-// 查询当前页的用户数据
-$query = "SELECT * FROM users LIMIT $offset, $recordsPerPage";
+// 查询当前页的用户数据（包括搜索条件）
+$query = "SELECT * FROM users WHERE 1 $searchCondition LIMIT $offset, $recordsPerPage";
 $result = $conn->query($query);
 
-// 查询总记录数
-$totalRecordsQuery = "SELECT COUNT(*) as total FROM users";
+// 查询总记录数（包括搜索条件）
+$totalRecordsQuery = "SELECT COUNT(*) as total FROM users WHERE 1 $searchCondition";
 $totalRecordsResult = $conn->query($totalRecordsQuery);
 $totalRecords = $totalRecordsResult->fetch_assoc()['total'];
 $totalPages = ceil($totalRecords / $recordsPerPage);
-
-
-
 ?>
 
 
@@ -51,6 +60,21 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
 
 <body>
     <h2>用户信息管理</h2>
+    
+    <form method="get" action="">
+        <label for="searchUsername">用户名：</label>
+        <input type="text" id="searchUsername" name="searchUsername">
+
+        <label for="searchGender">性别：</label>
+        <select id="searchGender" name="searchGender">
+            <option value="">全部</option>
+            <option value="1">女</option>
+            <option value="0">男</option>
+        </select>
+
+        <button type="submit" name="search">搜索</button>
+    </form>
+
     <table>
         <thead>
             <tr>
@@ -65,7 +89,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
         <tbody>
             <?php while ($row = $result->fetch_assoc()) : ?>
                 <tr>
-                    <!-- <td><?/*php echo $row['id']; */?></td> -->
+                    <!-- <td><?/*php echo $row['id']; */ ?></td> -->
                     <td><?php echo $row['username']; ?></td>
                     <td><?php echo $row['password']; ?></td>
                     <td> <img src="../<?php echo $row['img']; ?>" alt="头像" style="width: 50px; height: 50px;"></td>

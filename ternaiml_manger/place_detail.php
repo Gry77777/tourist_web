@@ -40,6 +40,7 @@ $conn->close();
     <h2>地区详情管理</h2>
     <table border="1">
         <tr>
+            <th>region_id</th>
             <th>Title</th>
             <th>Content</th>
             <th>Image URL</th>
@@ -47,6 +48,7 @@ $conn->close();
         </tr>
         <?php foreach ($introductionData as $data) : ?>
             <tr>
+                <td contenteditable="false"><?= $data['region_id'] ?></td>
                 <td contenteditable="false"><?= $data['title'] ?></td>
                 <td contenteditable="false"><?= $data['content'] ?></td>
                 <td><img src="../<?= $data['image_url'] ?>" alt=""></td>

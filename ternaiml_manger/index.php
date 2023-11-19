@@ -1,7 +1,6 @@
 <?php
 // 确保 session 已启动
 require "config.php";
-session_set_cookie_params(0);
 ini_set('session.gc_maxlifetime', 0);
 session_start();
 if (!isset($_SESSION['admin_id'])) {
@@ -72,12 +71,14 @@ if (isset($_SESSION['admin_id'])) {
                     <ul>
                         <li data-url="place.php">地区预览图</li>
                         <li data-url="place_detail.php">地区详情</li>
+                        <li data-url="region_comment.php">各地区评论管理</li>
                     </ul>
                 </li>
                 <li class="has-submenu">景点信息
                     <ul>
                         <li data-url="tourist_place.php">景点预览图</li>
                         <li data-url="tourist_detail.php">景点详情</li>
+                        <li data-url="tourist_comment.php">景点详情页评论管理</li>
                     </ul>
                 </li>
                 <li class="has-submenu">商品信息
@@ -86,6 +87,7 @@ if (isset($_SESSION['admin_id'])) {
                         <li data-url="goods_detail.php">商品详情</li>
                     </ul>
                 </li>
+                <li data-url="admin.php">后台管理员信息</li>
             </ul>
         </div>
 
@@ -99,7 +101,7 @@ if (isset($_SESSION['admin_id'])) {
                 </form>
             </div>
             <div class="main-content" id="mainContent">
-                <iframe id="contentFrame" src="user_manger.php" frameborder="0"></iframe>
+                <iframe id="contentFrame" src="home.php" frameborder="0"></iframe>
             </div>
         </div>
 

@@ -2,16 +2,14 @@
 require "config.php";
 
 session_start(); // Start the session
-
+session_set_cookie_params(0, '/termainl_manger', 'localhost', false, true);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 处理登录逻辑
     $username = $_POST["username"];
     $password = $_POST["password"];
-
     $loginErrors = array();
-
     // 检测用户名是否存在
-    $checkUsernameQuery = "SELECT * FROM admin WHERE username = '$username'";
+    $checkUsernameQuery = "SELECT *, COALESCE(is_superadmin, 0) AS is_superadmin FROM admin WHERE username = '$username'";
     $result = $conn->query($checkUsernameQuery);
     if ($result->num_rows == 0) {
         $loginErrors[] = "用户名不存在。";
@@ -21,18 +19,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!password_verify($password, $user["password"])) {
             $loginErrors[] = "密码不正确。";
         } else {
-            // 登录成功，将admin_id存入session
-            $_SESSION['admin_id'] = $user['admin_id'];
+            // 登录成功，判断是否是超级管理员
+            if ($user["is_superadmin"] == 1) {
+                // 是超级管理员，将admin_id存入session
+                $_SESSION['admin_id'] = $user['admin_id'];
+                header("location: index.php");
+                // 可以添加登录成功后的跳转或其他逻辑
+            } else {
+                $loginErrors[] = "您无权进入管理系统。";
+            }
         }
     }
 
     // 如果有错误，输出错误消息
     if (!empty($loginErrors)) {
         echo '<script>alert("登录失败，请检查用户名和密码。");</script>';
-    } else {
-        echo '<script>alert("登录成功！");</script>';
-        header("location: index.php");
-        // 可以添加登录成功后的跳转或其他逻辑
     }
 
     $conn->close();

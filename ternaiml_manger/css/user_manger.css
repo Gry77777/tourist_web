@@ -40,6 +40,7 @@ tr:hover {
     background-color: #e0e0e0; /* 更浅的灰色背景 */
 }
 
+
 /* 重置和删除按钮样式 */
 button {
     padding: 8px 12px;
@@ -82,6 +83,32 @@ button:hover {
 .delete-cancel-btn{
     width: 77px;
 }
+
+form {
+    margin: 20px auto;
+    text-align: center;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input, select, button {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 12px;
+    background-color: #45a049;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
 
 .pagination {
     margin-top: 20px;

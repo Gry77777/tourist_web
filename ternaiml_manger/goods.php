@@ -33,8 +33,28 @@ $conn->close();
     <title>网站首页</title>
     <link rel="stylesheet" href="./css/goods.css">
     <style>
-        /* ... 省略前面的样式代码 ... */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 1000;
+        }
 
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
     </style>
 </head>
 
@@ -63,7 +83,31 @@ $conn->close();
             echo '</td>';
             echo '</tr>';
         }
+        '</tr>';
         ?>
+        <tr>
+            <td colspan="5">
+                <button class="add-btn">添加商品</button>
+            </td>
+        </tr>
+
+        <div class="overlay" id="overlay"></div>
+        <div class="modal" id="modal">
+            <h2>添加商品</h2>
+            <form id="addForm">
+                <label for="name">商品名称:</label>
+                <input type="text" name="name" required>
+                <br>
+                <label for="description">商品简介:</label>
+                <textarea name="description" required></textarea>
+                <br>
+                <!-- 其他商品信息的输入字段，根据你的数据库表结构 -->
+                <br>
+                <input type="submit" value="添加">
+                <button type="button" id="cancelBtn">取消</button>
+            </form>
+        </div>
+
     </table>
     </div>
 
@@ -76,5 +120,31 @@ $conn->close();
         ?>
     </div>
 </body>
+
+<script>
+    $(function() {
+        $(".add-btn").on("click", function() {
+            $("#overlay, #modal").show();
+        });
+
+        // 关闭模态框
+        $("#cancelBtn").on("click", function() {
+            $("#overlay, #modal").hide();
+        });
+
+        // 处理表单提交
+        $("#addForm").on("submit", function(event) {
+            event.preventDefault();
+
+            // 处理表单提交逻辑，可以使用 AJAX 发送数据到服务器
+            // 然后在服务器端进行插入操作，类似前面提到的 PHP 代码
+            // 注意：这里只是一个示例，实际上需要添加更多的验证和安全性检查
+            alert("商品添加成功！");
+
+            // 关闭模态框
+            $("#overlay, #modal").hide();
+        });
+    });
+</script>
 
 </html>

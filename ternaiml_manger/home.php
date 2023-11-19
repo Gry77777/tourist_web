@@ -42,7 +42,7 @@ $totalPages = ceil($totalRows / $rowsPerPage);
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>名称</th>
                 <th>描述</th>
                 <th>图片</th>
@@ -53,7 +53,7 @@ $totalPages = ceil($totalRows / $rowsPerPage);
             <?php
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<tr>';
-                echo '<td>' . $row['home_id'] . '</td>';
+                // echo '<td>' . $row['home_id'] . '</td>';
                 echo '<td data-column-name="home_name" data-editable="true">' . htmlspecialchars($row['home_name']) . '</td>';
                 echo '<td data-column-name="home_description" data-editable="true">' . htmlspecialchars($row['home_description']) . '</td>';
                 echo '<td><img src="../' . $row['home_image_url'] . '" alt="Image" style="max-width: 100px; max-height: 100px;"></td>';

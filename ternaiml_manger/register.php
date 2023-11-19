@@ -35,10 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // 使用 password_hash() 对密码进行哈希
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        // 插入数据到数据库
-        $sql = "INSERT INTO admin (username, password) VALUES ('$username', '$hashedPassword')";
+        // 插入数据到数据库，默认设置is_superadmin为0
+        $sql = "INSERT INTO admin (username, password, is_superadmin) VALUES ('$username', '$hashedPassword', 0)";
         if ($conn->query($sql) === TRUE) {
-            echo "Registration successful!";
+            header("location:login.php");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

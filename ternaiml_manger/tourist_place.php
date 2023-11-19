@@ -1,12 +1,21 @@
 <?php
 require "config.php";
 
-$itemsPerPage = 7;
+$itemsPerPage = 5;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
+$searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
 
 $touristsData = [];
-$touristsQuery = "SELECT tourist_id, name, img FROM tourists_place LIMIT " . (($page - 1) * $itemsPerPage) . ", $itemsPerPage";
+$touristsQuery = "SELECT tourist_id, name, img FROM tourists_place ";
+
+// 添加模糊查询条件
+if (!empty($searchTerm)) {
+    $touristsQuery .= "WHERE name LIKE '%$searchTerm%' ";
+}
+
+$touristsQuery .= "LIMIT " . (($page - 1) * $itemsPerPage) . ", $itemsPerPage";
 $touristsResult = $conn->query($touristsQuery);
+
 while ($tourist = $touristsResult->fetch_assoc()) {
     $touristsData[] = [
         'tourist_id' => $tourist['tourist_id'],
@@ -16,6 +25,12 @@ while ($tourist = $touristsResult->fetch_assoc()) {
 }
 
 $totalItemsQuery = "SELECT COUNT(*) AS total FROM tourists_place";
+
+// 添加模糊查询条件
+if (!empty($searchTerm)) {
+    $totalItemsQuery .= " WHERE name LIKE '%$searchTerm%'";
+}
+
 $totalItemsResult = $conn->query($totalItemsQuery);
 $totalItems = $totalItemsResult->fetch_assoc()['total'];
 
@@ -34,6 +49,11 @@ $conn->close();
 
 <body>
     <h2>景点预览管理</h2>
+    <form method="GET" action="" style="text-align: center;">
+        <label for="search">搜索：</label>
+        <input type="text" id="search" name="search" value="<?= $searchTerm ?>" />
+        <input type="submit" value="搜索" />
+    </form>
     <table border="1" id="yourTable">
         <tr>
             <th>Tourist ID</th>
