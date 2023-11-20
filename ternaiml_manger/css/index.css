@@ -56,13 +56,11 @@ body {
 
 /* 侧边栏样式 */
 .sidebar {
-    background-color: #333;
-    color: #fff;
+    background-color: #2C3E50;
+    color: #ecf0f1;
     padding: 20px;
     width: 200px;
-    /* 调整宽度，根据实际需求 */
     transition: width 0.3s ease;
-    /* 添加过渡效果 */
 }
 
 .sidebar span {
@@ -70,6 +68,7 @@ body {
     font-weight: bold;
     display: block;
     margin-bottom: 20px;
+    color: #3498db;
 }
 
 .sidebar ul {
@@ -79,68 +78,60 @@ body {
 }
 
 .sidebar li {
+    position: relative;
     padding: 10px;
     cursor: pointer;
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid #46627f;
     transition: background-color 0.3s ease, color 0.3s ease;
-    /* 添加过渡效果 */
 }
 
-/* 高亮显示选定的菜单项 */
 .sidebar li.active {
-    background-color: #555;
+    background-color: #46627f;
 }
 
-/* 鼠标悬停时的颜色变化 */
 .sidebar li:hover {
-    background-color: #555;
+    background-color: #46627f;
     color: #ffcc00;
-    /* 悬停时的文字颜色 */
 }
 
-/* 子菜单样式 */
+/* 修改子菜单样式 */
+.sidebar ul li.has-submenu {
+    position: relative;
+}
 
-.sidebar ul ul {
+.sidebar ul li.has-submenu > ul {
     display: none;
     background-color: #555;
     position: absolute;
-    top: 100%;
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 1;
     margin-top: 8px;
-    /* 调整上边距，根据实际需求调整数值 */
 }
 
-.sidebar ul ul li {
-    background-color: #444;
-    transition: background-color 0.3s ease;
-}
-
-/* 切换按钮样式 */
-.sidebar ul li.has-submenu::after {
+/* 修改标识图标样式 */
+.sidebar li.has-submenu::after {
     content: '\25B8';
-    /* 右箭头符号 */
     position: absolute;
     right: 10px;
     top: 50%;
-    /* 设置为 50%，使箭头垂直居中 */
     transform: translateY(-50%);
-    /* 使用 translateY 调整箭头的垂直位置 */
     transition: transform 0.3s ease;
 }
 
-/* 子菜单展开时的样式 */
-.sidebar ul li.has-submenu.collapsed>ul {
+/* 修改展开后的标识图标样式 */
+.sidebar li.has-submenu.collapsed::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* 修改展开子菜单的样式 */
+.sidebar ul li.has-submenu.collapsed > ul {
     display: block;
     position: relative;
     height: auto;
 }
 
-/* 箭头展开时的样式 */
-.sidebar ul li.has-submenu.collapsed>span::after {
-    transform: rotate(90deg);
-}
 
 .content {
     height: 100%;
@@ -202,6 +193,15 @@ input[type="submit"]:hover {
     /* 设置按钮悬停时的背景颜色 */
 }
 
+@keyframes blink {
+    50% {
+        background-color: yellow;
+    }
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
 
 
 iframe {

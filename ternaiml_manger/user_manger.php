@@ -32,7 +32,7 @@ if (!empty($searchGender)) {
 
 // 分页
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
-$recordsPerPage = 10;
+$recordsPerPage = 5;
 $offset = ($page - 1) * $recordsPerPage;
 
 // 查询当前页的用户数据（包括搜索条件）

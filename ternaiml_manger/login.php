@@ -2,38 +2,44 @@
 require "config.php";
 
 session_start(); // Start the session
-session_set_cookie_params(0, '/termainl_manger', 'localhost', false, true);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 处理登录逻辑
     $username = $_POST["username"];
     $password = $_POST["password"];
     $loginErrors = array();
+
     // 检测用户名是否存在
     $checkUsernameQuery = "SELECT *, COALESCE(is_superadmin, 0) AS is_superadmin FROM admin WHERE username = '$username'";
     $result = $conn->query($checkUsernameQuery);
+
     if ($result->num_rows == 0) {
         $loginErrors[] = "用户名不存在。";
     } else {
         // 验证密码
         $user = $result->fetch_assoc();
+
         if (!password_verify($password, $user["password"])) {
             $loginErrors[] = "密码不正确。";
         } else {
+            $isSuperadmin = $user["is_superadmin"];
+
             // 登录成功，判断是否是超级管理员
-            if ($user["is_superadmin"] == 1) {
+            if ($isSuperadmin == "1") {
                 // 是超级管理员，将admin_id存入session
                 $_SESSION['admin_id'] = $user['admin_id'];
                 header("location: index.php");
-                // 可以添加登录成功后的跳转或其他逻辑
+                exit; // 终止脚本执行
             } else {
-                $loginErrors[] = "您无权进入管理系统。";
+                $loginErrors[] = "您无权进入管理系统,等待超级管理员处理您的申请";
             }
         }
     }
 
     // 如果有错误，输出错误消息
     if (!empty($loginErrors)) {
-        echo '<script>alert("登录失败，请检查用户名和密码。");</script>';
+        foreach ($loginErrors as $error) {
+            echo '<script>alert("' . $error . '");</script>';
+        }
     }
 
     $conn->close();
@@ -48,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./js/jquery3.6.3.js"></script>
     <link rel="stylesheet" href="./css/login.css">
 </head>
 
@@ -68,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit">登录</button>
             </div>
         </form>
-        <p>没有账户？<a href="register.php">在这里注册</a>。</p>
+        <p>没有账户？<a href="register.php">在这里注册申请</a>。</p>
     </div>
 
     <script>

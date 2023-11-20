@@ -27,7 +27,20 @@ if (isset($_SESSION['admin_id'])) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $_SESSION['username'] = $row['username'];
+        $_SESSION['username1'] = $row['username'];
+    }
+}
+
+if ($_SESSION['admin_id'] == 1) {
+    $checkSuperadminQuery = "SELECT COUNT(*) as count FROM admin WHERE is_superadmin = 0";
+    $resultSuperadmin = $conn->query($checkSuperadminQuery);
+
+    if ($resultSuperadmin && $resultSuperadmin->num_rows > 0) {
+        $rowSuperadmin = $resultSuperadmin->fetch_assoc();
+        $superadminCount = $rowSuperadmin['count'];
+
+        // Set the blink style based on superadmin count
+        $blinkStyle = ($superadminCount > 0) ? 'blink' : '';
     }
 }
 ?>
@@ -64,7 +77,11 @@ if (isset($_SESSION['admin_id'])) {
         <div class="sidebar">
             <span style="font-size: 16px;"><em>金华旅游网站后台管理系统</em></span>
             <ul>
-                <li data-url="home.php">首页管理</li>
+                <li data-url="home.php" class="has-submenu">首页管理
+                    <ul>
+                        <li data-url="home_detail.php">首页详情管理</li>
+                    </ul>
+                </li>
                 <li data-url="user_manger.php">用户信息管理</li>
                 <li class="has-submenu">
                     金华地区管理
@@ -87,14 +104,14 @@ if (isset($_SESSION['admin_id'])) {
                         <li data-url="goods_detail.php">商品详情</li>
                     </ul>
                 </li>
-                <li data-url="admin.php">后台管理员信息</li>
+                <li data-url="admin.php" class="<?php echo $blinkStyle; ?>" id="manger">后台管理员信息</li>
             </ul>
         </div>
 
         <div class="content">
             <div class="header">
                 <div class="user-info">
-                    <span>欢迎回来：<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; ?></span>
+                    <span>欢迎回来：<?php echo isset($_SESSION['username1']) ? $_SESSION['username1'] : 'Guest'; ?></span>
                 </div>
                 <form method="post" action="">
                     <input type="submit" name="logout" value="Logout">
@@ -113,6 +130,14 @@ if (isset($_SESSION['admin_id'])) {
                 e.stopPropagation(); // 阻止事件传播到带有子菜单的父级 li
                 var url = $(this).data('url');
                 $('#contentFrame').attr('src', url);
+            });
+
+            $('#manger').click(function() {
+                // 移除闪烁效果
+                $(this).removeClass('blink');
+                // 获取点击的菜单项的URL
+                var url = $(this).data('url');
+                // 设置iframe的src为点击菜单项的URL
             });
 
             $('.sidebar ul li.has-submenu').click(function(e) {

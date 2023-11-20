@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="login-container">
-        <h2>管理员注册</h2>
+        <h2>管理员注册申请</h2>
         <form id="registerForm" method="post" action="">
             <div class="form-group">
                 <label for="username">用户名:</label>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "config.php";
 
 $sql = "SELECT * FROM admin";
@@ -89,12 +90,14 @@ $conn->close();
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Is Superadmin</th>
-                <th>Status</th>
+                <!-- <th>Status</th> -->
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
+
             <?php
+            $loggedInAdminId = isset($_SESSION['admin_id']) ? $_SESSION['admin_id'] : null; // 获取当前登录管理员的 admin_id
             while ($admin = $result->fetch_assoc()) {
                 echo '<tr>';
                 echo '<td>' . $admin['admin_id'] . '</td>';
@@ -103,15 +106,19 @@ $conn->close();
                 echo '<td>' . $admin['created_at'] . '</td>';
                 echo '<td>' . $admin['updated_at'] . '</td>';
                 echo '<td>' . $admin['is_superadmin'] . '</td>';
-                echo '<td>' . $admin['status'] . '</td>';
                 echo '<td class="button-group">';
 
-                // Check if admin_id is not 1 before displaying the buttons
-                if ($admin['admin_id'] != 1) {
-                    echo '<button data-action="delete" data-admin-id="' . $admin['admin_id'] . '">删除</button>';
-                    echo '<button data-action="set_superadmin" data-admin-id="' . $admin['admin_id'] . '">设为管理员</button>';
-                }
 
+                if ($loggedInAdminId == 1) {
+                    if ($admin['admin_id'] != 1) {
+                        echo '<button data-action="delete" data-admin-id="' . $admin['admin_id'] . '">删除</button>';
+                        echo '<button data-action="set_superadmin" data-admin-id="' . $admin['admin_id'] . '">设为管理员</button>';
+                    } else {
+                        echo '<span>超超超级管理员</span>';
+                    }
+                } else {
+                    echo '<span>你的权限不够</span>';
+                }
                 echo '</td>';
                 echo '</tr>';
             }

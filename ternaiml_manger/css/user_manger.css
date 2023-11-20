@@ -65,7 +65,7 @@ button:hover {
 .reset-buttons button,
 .delete-buttons button {
     margin-bottom: 5px;
-    padding: 1px 3px;
+    padding: 3px 5px;
     /* Adjust padding for button size */
     background-color: red;
     /* Set background color to red */
@@ -77,10 +77,12 @@ button:hover {
 }
 .reset-confirm-btn,
 .reset-cancel-btn{
+    margin-left: 46px;
     width: 77px;
 }
 .delete-confirm-btn,
 .delete-cancel-btn{
+    margin-left: 46px;
     width: 77px;
 }
 

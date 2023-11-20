@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
 }
@@ -16,6 +17,7 @@ h2 {
     /* 更深的绿色背景 */
     color: white;
     /* 白色文本 */
+    margin: 0 auto;
 }
 
 th,
@@ -34,6 +36,61 @@ img {
     max-height: 100px;
     display: block;
     margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-wrap: nowrap;
+    /* 防止换行 */
+    gap: 10px;
+    justify-content:flex-start;
+    margin-top: 10px;
+}
+
+label {
+    flex: 0.2;
+    text-align: right;
+}
+
+input {
+    flex: 0 0 200px;
+    /* 设置输入框宽度为200px，不占据剩余空间 */
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 5px 8px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+#addButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    padding: 12px 16px;
+    background-color: #59b4ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#addButton:hover {
+    background-color: #ff7474;
 }
 
 .action-buttons a {
@@ -126,25 +183,69 @@ img {
 #myModal {
     display: none;
     position: fixed;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 1;
-    width: 60%;
-    /* 调整宽度 */
-    max-width: 85%;
-    /* 设置最大宽度 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #888;
+    width: 80%;
 }
 
 .close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 增加信息得拟态框 */
+#addModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#addModal .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+#addModal .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#addModal .close:hover,
+#addModal .close:focus {
+    color: black;
+    text-decoration: none;
     cursor: pointer;
 }
 
