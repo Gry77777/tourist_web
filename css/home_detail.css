@@ -1,0 +1,142 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.top {
+    width: 100%;
+    height: 50px;
+    background-color: rgb(63, 63, 62);
+    line-height: 50px;
+    position: relative;
+}
+
+.top .left {
+    color: rgb(147, 147, 147);
+    position: absolute;
+    left: 20px;
+    font-style: italic;
+
+}
+
+.top .right {
+    color: rgb(158, 156, 156);
+    position: absolute;
+    right: 25px;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+
+}
+
+
+
+.right img {
+    margin-left: 5px;
+    margin-top: 5px;
+    /* 添加文字和图片之间的间距 */
+}
+
+.right a {
+    display: inline-block;
+    color: rgb(140, 137, 137);
+    text-decoration: none;
+
+}
+
+.right a:hover {
+    color: aqua;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* 主容器样式 */
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd; /* 添加边框效果 */
+}
+
+/* 图片容器样式 */
+.image-container {
+    flex: 1;
+    margin-right: 20px;
+}
+
+/* 图片样式 */
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* 添加圆角效果 */
+}
+
+/* 详细信息容器样式 */
+.details {
+    flex: 2;
+}
+
+/* 标题样式 */
+.details h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* 描述样式 */
+.details .description {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* 附加信息列表样式 */
+.additional-info {
+    list-style: none;
+    padding: 0;
+}
+
+/* 附加信息列表项样式 */
+.additional-info li {
+    margin-bottom: 8px;
+}
+
+/* 强调文本样式 */
+.additional-info li strong {
+    color: #0088cc;
+}
+
+
+.footer {
+    width: 100%;
+    bottom: 0px;
+    position: absolute;
+    padding: 20px;
+    background-color: #333;
+    text-align: center;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

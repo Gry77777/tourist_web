@@ -43,7 +43,7 @@ $totalPages = ceil($totalRecords / $recordsPerPage);
         <div class="main">
             <?php
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<a href="detail.php?homeid=' . $row['home_id'] . '">';
+                echo '<a href="home_detail.php?home_id=' . $row['home_id'] . '">';
                 echo '<div class="list">';
                 echo '<div class="item">';
                 echo '<div class="left">';
