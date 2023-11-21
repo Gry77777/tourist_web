@@ -2,14 +2,14 @@
 require "config.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['modifyID'], $_POST['modifyName'], $_POST['modifyDescription'], $_POST['modifyRecommendedSeason'], $_POST['modifySuggestedStayDuration'], $_POST['modifyMainAttractions'], $_POST['modifyFeaturedActivities'])) {
-        $id = $_POST['modifyID'];
-        $modifiedName = mysqli_real_escape_string($conn, $_POST['modifyName']);
-        $modifiedDescription = mysqli_real_escape_string($conn, $_POST['modifyDescription']);
-        $modifiedRecommendedSeason = mysqli_real_escape_string($conn, $_POST['modifyRecommendedSeason']);
-        $modifiedSuggestedStayDuration = mysqli_real_escape_string($conn, $_POST['modifySuggestedStayDuration']);
-        $modifiedMainAttractions = mysqli_real_escape_string($conn, $_POST['modifyMainAttractions']);
-        $modifiedFeaturedActivities = mysqli_real_escape_string($conn, $_POST['modifyFeaturedActivities']);
+    if (isset($_POST['id'], $_POST['name'], $_POST['description'], $_POST['recommended_season'], $_POST['suggested_stay_duration'], $_POST['main_attractions'], $_POST['featured_activities'])) {
+        $id = $_POST['id'];
+        $modifiedName = mysqli_real_escape_string($conn, $_POST['name']);
+        $modifiedDescription = mysqli_real_escape_string($conn, $_POST['description']);
+        $modifiedRecommendedSeason = mysqli_real_escape_string($conn, $_POST['recommended_season']);
+        $modifiedSuggestedStayDuration = mysqli_real_escape_string($conn, $_POST['suggested_stay_duration']);
+        $modifiedMainAttractions = mysqli_real_escape_string($conn, $_POST['main_attractions']);
+        $modifiedFeaturedActivities = mysqli_real_escape_string($conn, $_POST['featured_activities']);
 
         $targetFile = ""; // Initialize with an empty string
 
@@ -30,18 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Update database record
-        $sql = "UPDATE home_detail SET name=?, description=?,";
+        $sql = "UPDATE home_detail SET name='$modifiedName', description='$modifiedDescription'";
         if (!empty($targetFile)) {
-            $sql .= " image_url=?,";
+            $sql .= ", image_url='$targetFile'";
         }
-        $sql .= " recommended_season=?, suggested_stay_duration=?, main_attractions=?, featured_activities=? WHERE id=?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "ss", $modifiedName, $modifiedDescription);
-        if (!empty($targetFile)) {
-            mysqli_stmt_bind_param($stmt, "s", $targetFile);
-        }
-        mysqli_stmt_bind_param($stmt, "ssssssi", $modifiedRecommendedSeason, $modifiedSuggestedStayDuration, $modifiedMainAttractions, $modifiedFeaturedActivities, $id);
-        $result = mysqli_stmt_execute($stmt);
+        $sql .= ", recommended_season='$modifiedRecommendedSeason', suggested_stay_duration='$modifiedSuggestedStayDuration', main_attractions='$modifiedMainAttractions', featured_activities='$modifiedFeaturedActivities' WHERE id=$id";
+
+        $result = mysqli_query($conn, $sql);
 
         if ($result) {
             echo "修改成功";

@@ -95,3 +95,97 @@ img {
     background-color: #008CBA;
     color: white;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    width: 60%;
+    /* 调整宽度 */
+    max-width: 600px;
+    /* 设置最大宽度 */
+    height: 70%;
+    /* 调整高度 */
+    max-height: 400px;
+    /* 设置最大高度 */
+    overflow-y: auto;
+    /* 添加垂直滚动条 */
+}
+
+/* 取消按钮样式 */
+.cancelBtn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    /* 调整按钮上边距 */
+}
+
+/* 透明遮罩样式 */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    /* 垂直居中 */
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 20%;
+}
+
+/* 输入字段样式 */
+label {
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+/* 提交按钮样式 */
+input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 取消按钮样式 */
+.cancelBtn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}

@@ -122,9 +122,8 @@ $totalPages = ceil($totalRows / $rowsPerPage);
         </div>
     </div>
     <!-- 添加时的拟态框 -->
-    <!-- 模态框（添加信息）-->
     <div id="addModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content1">
             <span id="addClose" class="close">&times;</span>
             <h3>添加信息</h3>
             <form id="addForm" method="POST" enctype="multipart/form-data">
@@ -137,7 +136,7 @@ $totalPages = ceil($totalRows / $rowsPerPage);
                 <label for="addImage">图片:</label>
                 <input type="file" id="addImage" name="add-image">
                 <div id="addImagePreview"></div> <!-- 用于预览图片的区域 -->
-                <button type="submit">保存</button>
+                <button type="submit"  id="button1">保存</button>
             </form>
         </div>
     </div>

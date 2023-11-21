@@ -1,9 +1,16 @@
 <?php
 require "config.php";
 
-// 获取评论、用户名、旅游地名，并添加模糊查询条件和日期条件
-$searchTerm = isset($_GET['search']) ? $_GET['search'] : ''; // 假设你通过 GET 参数传递搜索条件
-$dateFilter = isset($_GET['date']) ? $_GET['date'] : ''; // 假设你通过 GET 参数传递日期条件
+// 每页显示的评论数量
+$commentsPerPage = 5;
+
+// 获取当前页码
+$currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+$offset = ($currentPage - 1) * $commentsPerPage;
+
+// 获取搜索条件和日期条件
+$searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+$dateFilter = isset($_GET['date']) ? $_GET['date'] : '';
 
 $sql = "SELECT c.comment_id, c.tourist_id, c.user_id, u.username, tp.name as tourist_name, c.comment_text, c.created_at
         FROM tourists_comments c
@@ -24,11 +31,20 @@ if (!empty($searchTerm) || !empty($dateFilter)) {
     }
 }
 
+// 添加 LIMIT 和 OFFSET 子句
+$sql .= " LIMIT $commentsPerPage OFFSET $offset";
+
 $result = $conn->query($sql);
 
 if (!$result) {
     die("查询失败：" . mysqli_error($conn));
 }
+
+// 获取总评论数
+$totalComments = $result->num_rows;
+
+// 计算总页数
+$totalPages = ceil($totalComments / $commentsPerPage);
 
 $conn->close();
 ?>
@@ -83,7 +99,24 @@ $conn->close();
             ?>
         </tbody>
     </table>
+    <div class="pagination">
+        <?php
+        // 上一页按钮
+        if ($currentPage > 1) {
+            echo '<a href="?page=' . ($currentPage - 1) . '">上一页</a>';
+        }
 
+        // 页码链接
+        for ($i = 1; $i <= $totalPages; $i++) {
+            echo '<a href="?page=' . $i . '">' . $i . '</a>';
+        }
+
+        // 下一页按钮
+        if ($currentPage < $totalPages) {
+            echo '<a href="?page=' . ($currentPage + 1) . '">下一页</a>';
+        }
+        ?>
+    </div>
     <script>
         $('body').on('click', '.delete-button', function() {
             const commentId = $(this).data('comment-id');

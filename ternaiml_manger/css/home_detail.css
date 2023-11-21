@@ -58,7 +58,34 @@ tr:hover {
 }
 
 
-/* Add your custom modal styles here */
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .pagination a {
+        padding: 8px 12px;
+        text-decoration: none;
+        color: #333;
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        margin: 0 4px;
+        cursor: pointer;
+    }
+
+    .pagination a:hover {
+        background-color: #ddd;
+    }
+
+    .pagination .current {
+        background-color: #4CAF50;
+        color: #fff;
+    }
+
+
+/*拟态框*/
 .modal {
     display: none;
     position: fixed;
