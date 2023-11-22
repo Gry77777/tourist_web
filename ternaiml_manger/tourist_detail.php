@@ -5,7 +5,12 @@ $itemsPerPage = 7;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 $touristsData = [];
-$touristsQuery = "SELECT * FROM tourist_details LIMIT " . (($page - 1) * $itemsPerPage) . ", $itemsPerPage";
+$searchQuery = "";
+if (isset($_GET['search'])) {
+    $searchTerm = htmlspecialchars($_GET['search']);
+    $searchQuery = "WHERE title LIKE '%$searchTerm%' OR introduction LIKE '%$searchTerm%'";
+}
+$touristsQuery = "SELECT * FROM tourist_details $searchQuery LIMIT " . (($page - 1) * $itemsPerPage) . ", $itemsPerPage";
 $touristsResult = $conn->query($touristsQuery);
 while ($tourist = $touristsResult->fetch_assoc()) {
     $touristsData[] = [
@@ -22,12 +27,13 @@ while ($tourist = $touristsResult->fetch_assoc()) {
     ];
 }
 
-$totalItemsQuery = "SELECT COUNT(*) AS total FROM tourist_details";
+$totalItemsQuery = "SELECT COUNT(*) AS total FROM tourist_details $searchQuery";
 $totalItemsResult = $conn->query($totalItemsQuery);
 $totalItems = $totalItemsResult->fetch_assoc()['total'];
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -85,11 +91,63 @@ $conn->close();
         background-color: #f44336;
         margin-left: 10px;
     }
+
+    .custom-button {
+        background-color: #4CAF50;
+        /* 绿色背景 */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 8px;
+        /* 圆角 */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        /* 阴影效果 */
+    }
+
+    .custom-button:hover {
+        background-color: #45a049;
+        /* 悬停时的颜色 */
+        color: white;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        /* 悬停时的阴影效果 */
+    }
+
+    #searchSection {
+        margin-bottom: 20px;
+    }
+
+    #searchInput {
+        padding: 10px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    #searchButton {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #searchButton:hover {
+        background-color: #45a049;
+    }
 </style>
 
 
 <body>
     <h2>景点详情管理</h2>
+
     <table border="1" id="yourTable">
         <tr>
             <th>id</th>
@@ -129,9 +187,16 @@ $conn->close();
 
         <?php endforeach; ?>
 
-        <button type="button" id="showAddModal" class="btn btn-primary" onclick="showAddModal()">
+        <button type="button" id="showAddModal" class="btn btn-primary custom-button" onclick="showAddModal()">
             添加信息
         </button>
+
+        <div id="searchSection">
+            <form method="get">
+                <input type="text" name="search" id="searchInput" placeholder="输入查询条件">
+                <button type="submit" id="searchButton">搜索</button>
+            </form>
+        </div>
     </table>
 
     <div id="pagination">
@@ -380,13 +445,14 @@ $conn->close();
                     type: 'POST',
                     url: 'edit_tourist_detail.php',
                     data: formData,
-                    processData: false, // Don't process the data
-                    contentType: false, // Don't set content type
+                    processData: false,
+                    contentType: false, 
                     success: function(response) {
                         if (response === 'success') {
-                            // location.reload();
+                            location.reload();
                             console.log(response);
                         } else {
+                            location.reload();
                             console.log('Error editing tourist');
                             console.log(response);
                         }
@@ -435,6 +501,9 @@ $conn->close();
                 formData.append('image3', file3);
             }
 
+            for (let pair of formData.entries()) {
+                console.log(pair[0], pair[1]);
+            }
             $.ajax({
                 type: 'POST',
                 url: 'add_tourist_detail.php',
@@ -444,6 +513,7 @@ $conn->close();
                 success: function(response) {
                     console.log(response);
                     $("#addModal").hide();
+                    location.reload();
                 },
                 error: function(error) {
                     console.log('Error saving data:', error);

@@ -77,8 +77,9 @@ if ($_SESSION['admin_id'] == 1) {
         <div class="sidebar">
             <span style="font-size: 16px;"><em>金华旅游网站后台管理系统</em></span>
             <ul>
-                <li data-url="home.php" class="has-submenu">首页管理
+                <li class="has-submenu">首页信息管理
                     <ul>
+                    <li data-url="home.php">首页预览管理</li>
                         <li data-url="home_detail.php">首页详情管理</li>
                     </ul>
                 </li>

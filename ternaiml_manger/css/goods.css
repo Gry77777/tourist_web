@@ -106,16 +106,6 @@ img {
     background-color: #fff;
     border: 1px solid #ccc;
     z-index: 1000;
-    width: 60%;
-    /* 调整宽度 */
-    max-width: 600px;
-    /* 设置最大宽度 */
-    height: 70%;
-    /* 调整高度 */
-    max-height: 400px;
-    /* 设置最大高度 */
-    overflow-y: auto;
-    /* 添加垂直滚动条 */
 }
 
 /* 取消按钮样式 */
@@ -149,7 +139,7 @@ img {
 }
 
 form {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -163,7 +153,7 @@ label {
 
 input[type="text"],
 textarea {
-    width: 100%;
+    width: 250px;
     padding: 8px;
     margin-bottom: 12px;
     box-sizing: border-box;

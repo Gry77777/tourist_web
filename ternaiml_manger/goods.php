@@ -51,7 +51,6 @@ $conn->close();
     <div class="modal" id="modifyModal">
         <h2>修改商品</h2>
         <form id="modifyForm" enctype="multipart/form-data">
-            <!-- 商品信息的输入字段，根据你的数据库表结构 -->
             <input type="hidden" id="modifyGoodsId" name="goodsId">
             <label for="modifyName">商品名称:</label>
             <input type="text" id="modifyName" name="name" required>
@@ -59,11 +58,9 @@ $conn->close();
             <label for="modifyDescription">商品简介:</label>
             <textarea id="modifyDescription" name="description" required></textarea>
             <br>
-            <!-- 文件上传字段 -->
             <label for="modifyImage">商品图片:</label>
             <input type="file" id="modifyImage" name="image">
             <br>
-            <!-- 其他商品信息的输入字段，根据你的数据库表结构 -->
             <br>
             <input type="submit" value="保存修改">
             <button type="button" class="cancelBtn" data-modal="modifyModal">取消</button>
@@ -118,7 +115,7 @@ $conn->close();
             echo '<td class="description">' . $row['description'] . '</td>';
             echo '<td><img src="../' . $row['image'] . '" alt="goods Image"></td>';
             echo '<td>';
-            echo '<button class="modify-btn" data-id="' . $row['goods_id'] . '">修改</button>';
+             echo '<button class="modify-btn" data-id="' . $row['goods_id'] . '" data-name="' . $row['name'] . '" data-description="' . $row['description'] . '" data-image="' . $row['image'] . '">修改</button>';
             echo '<button class="delete-btn" data-id="' . $row['goods_id'] . '">删除</button>';
             echo '</td>';
             echo '</tr>';
@@ -179,7 +176,6 @@ $conn->close();
         $('.modify-btn').on('click', function() {
             // 获取商品ID
             var goodsId = $(this).data('id');
-
             // 在这里可以根据商品ID发送请求获取商品信息，然后将信息填充到表单中
             // 这里仅是示例，实际应用中需要根据你的数据结构进行修改
             var name = $(this).closest('tr').find('.name').text();
@@ -211,14 +207,11 @@ $conn->close();
         // 处理修改表单提交
         $('#modifyForm').on('submit', function(event) {
             event.preventDefault();
-
             // 在这里可以获取修改表单数据，然后发送Ajax请求进行更新操作
-            // 这里仅是示例，实际应用中需要根据你的后端处理进行修改
             var goodsId = $('#modifyGoodsId').val();
             var newName = $('#modifyName').val();
             var newDescription = $('#modifyDescription').val();
             var newImage = $('#modifyImage')[0].files[0]; // 获取选择的文件
-
             // 如果选择了新图片
             if (newImage) {
                 // 创建 FormData 对象，用于发送包含文件的表单数据
